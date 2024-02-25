@@ -6,16 +6,16 @@
 </head>
 <body>
     
-    <form>
+    <form method="post">
         <a>Имя</a>
-        <input type="text">
+        <input type="text" name="Name">
         <a>Фамилия</a>
-        <input type="text">
+        <input type="text" name="Surname">
         <a>Эл. почта</a>
-        <input type="email">
+        <input type="email" name="Email">
         <a>Пароль</a>
-        <input type="password">
-        <button><a href="{{url for ()}}">Отправить!</a></button>
+        <input type="password" name="Password">
+        <button><input type="submit" value="Отправить!"></button>
     </form>
 
 </body>
