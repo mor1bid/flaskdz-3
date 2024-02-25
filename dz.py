@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request
 from dzmi import db, Regform
+from werkzeug.security import generate_password_hash
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///mydatabase.db'
@@ -12,7 +13,8 @@ def index():
         surname =  request.form.get('Surname')
         email = request.form.get('Email')
         password = request.form.get('Password')
-        newbie = Regform(name=f'{name}', surname=f'{surname}', email=f'{email}', password=f'{password}')
+        newbie = Regform(name=f'{name}', surname=f'{surname}', email=f'{email}', password=f'{generate_password_hash(password)}')
+        
         db.session.add(newbie)
         db.session.commit()
     return render_template("base.html")
@@ -25,7 +27,7 @@ def init_db():
 @app.cli.command('drop-db')
 def drop_db():
     db.drop_all()
-    print('Датабаза очищена.')
+    print('Датабаза удалена.')
 
 
 if __name__=="__main__":
