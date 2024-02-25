@@ -12,9 +12,10 @@ def index():
         name = request.form.get('Name')
         surname =  request.form.get('Surname')
         email = request.form.get('Email')
-        password = request.form.get('Password')
-        newbie = Regform(name=f'{name}', surname=f'{surname}', email=f'{email}', password=f'{generate_password_hash(password)}')
-        
+        password = generate_password_hash(request.form.get('Password'))
+
+        newbie = Regform(name=f'{name}', surname=f'{surname}', email=f'{email}', password=f'{password}')
+
         db.session.add(newbie)
         db.session.commit()
     return render_template("base.html")
