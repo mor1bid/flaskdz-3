@@ -13,7 +13,8 @@ def index():
         surname =  request.form.get('Surname')
         email = request.form.get('Email')
         password = request.form.get('Password')
-        if name and surname and email and password != '':
+        confirm = request.form.get('Confirm')
+        if name and surname and email and password != '' and password == confirm:
             password = generate_password_hash(password)
             newbie = Regform(name=f'{name}', surname=f'{surname}', email=f'{email}', password=f'{password}')
             db.session.add(newbie)

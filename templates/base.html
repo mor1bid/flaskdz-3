@@ -10,15 +10,19 @@
     {% endblock %}
     {% block content %}
     <form method="post">
-        <a>Имя</a>
-        <input type="text" name="Name"/>
-        <a>Фамилия</a>
-        <input type="text" name="Surname"/>
-        <a>Эл. почта</a>
-        <input type="email" name="Email"/>
-        <a>Пароль</a>
-        <input type="password" name="Password">
-        <input type="submit" value="Отправить!">
+        <ul>
+            <li><a>Имя</a></li>
+            <input type="text" name="Name"/>
+            <li><a>Фамилия</a></li>
+            <input type="text" name="Surname"/>
+            <li><a>Эл. почта</a></li>
+            <input type="email" name="Email"/>
+            <li><a>Пароль</a></li>
+            <input type="password" name="Password">
+            <li><a>Подтвердить пароль</a></li>
+            <input type="password" name="Confirm"><br>
+            <input type="submit" value="Отправить!">
+        </ul>
     </form>
     {% endblock %}
 
