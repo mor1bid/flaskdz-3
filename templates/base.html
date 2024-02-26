@@ -5,18 +5,22 @@
     <title>Document</title>
 </head>
 <body>
-    
+    {% block title %}
+    <h3>Здравствуйте. Пожалуйста, заполните данные поля для дальнейшей работы!</h3>
+    {% endblock %}
+    {% block content %}
     <form method="post">
         <a>Имя</a>
-        <input type="text" name="Name">
+        <input id="text" name="Name"/>
         <a>Фамилия</a>
-        <input type="text" name="Surname">
+        <input id="text" name="Surname"/>
         <a>Эл. почта</a>
-        <input type="email" name="Email">
+        <input id="email" name="Email"/>
         <a>Пароль</a>
-        <input type="password" name="Password">
-        <button><input type="submit" value="Отправить!"></button>
+        <input id="password" name="Password">
+        <input type="submit" value="Отправить!">
     </form>
+    {% endblock %}
 
 </body>
 </html>

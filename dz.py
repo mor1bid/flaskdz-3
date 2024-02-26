@@ -13,11 +13,13 @@ def index():
         surname =  request.form.get('Surname')
         email = request.form.get('Email')
         password = generate_password_hash(request.form.get('Password'))
-
-        newbie = Regform(name=f'{name}', surname=f'{surname}', email=f'{email}', password=f'{password}')
-
-        db.session.add(newbie)
-        db.session.commit()
+        if name and surname and email and password != '':
+            newbie = Regform(name=f'{name}', surname=f'{surname}', email=f'{email}', password=f'{password}')
+            db.session.add(newbie)
+            db.session.commit()
+            return render_template('yes.html')
+        else:
+            return render_template('no.html')
     return render_template("base.html")
 
 @app.cli.command('init-db')
