@@ -11,13 +11,13 @@
     {% block content %}
     <form method="post">
         <a>Имя</a>
-        <input id="text" name="Name"/>
+        <input type="text" name="Name"/>
         <a>Фамилия</a>
-        <input id="text" name="Surname"/>
+        <input type="text" name="Surname"/>
         <a>Эл. почта</a>
-        <input id="email" name="Email"/>
+        <input type="email" name="Email"/>
         <a>Пароль</a>
-        <input id="password" name="Password">
+        <input type="password" name="Password">
         <input type="submit" value="Отправить!">
     </form>
     {% endblock %}
